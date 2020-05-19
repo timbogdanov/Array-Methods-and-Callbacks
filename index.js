@@ -22,16 +22,23 @@ const fifaInfo = fifaData.filter(function(element) {
     }
 
     if (element["Year"] === 2014 && element["Stage"] === "Final") {
-        console.log(element["Win conditions"]);
+        // console.log(element["Win conditions"]);
     }
 });
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals() {
-
+function getFinals(data) {
+    return data.filter(function(item) {
+        return item["Stage"] === "Final";
+    });
 };
+
+const filter = data => data.filter(item => item.Stage === "Final");
+
+console.log(filter(fifaData));
+
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
