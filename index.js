@@ -20,21 +20,16 @@ const fifaInfo = fifaData.filter(function(element) {
         // console.log(element["Home Team Goals"]);
         // console.log(element["Away Team Goals"]);
     }
-});
 
-const fifaWinner = fifaData.filter(function(element) {
     if (element["Year"] === 2014 && element["Stage"] === "Final") {
-        // console.log(element["Win conditions"]);
+        console.log(element["Win conditions"]);
     }
 });
 
 
-
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
-
-    /* code here */
+function getFinals() {
 
 };
 
