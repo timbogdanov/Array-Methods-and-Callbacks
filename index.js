@@ -100,16 +100,15 @@ function getAverageGoals(data) {
     });
 
     const resultAway = getAwayScores.reduce(function(accumulator, item) {
-        return (accumulator + item) / getAwayScores.length;
+        return (accumulator + item);
     });
 
     const resultHome = getHomeScores.reduce(function(accumulator, item) {
-        return (accumulator + item) / getAwayScores.length;
+        return (accumulator + item);
     });
 
-    console.log(resultHome);
-    console.log(resultAway);
-
+    console.log(resultHome/getHomeScores);
+    console.log(resultAway/getAwayScores);
 
 };
 
