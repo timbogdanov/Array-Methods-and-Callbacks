@@ -1,5 +1,6 @@
 {
     "cSpell.enableFiletypes": [
         "!javascript"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

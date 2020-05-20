@@ -13,15 +13,12 @@ import { fifaData } from './fifa.js';
 (e) Winner of 2014 world cup final */
 
 
-const fifaInfo = fifaData.filter(function(element) {
-    if (element["Year"] === 2014) {
+fifaData.forEach(function(element) {
+    if (element["Year"] === 2014 && element["Stage"] === "Final") {
         // console.log(element["Home Team Name"]);
         // console.log(element["Away Team Name"]);
         // console.log(element["Home Team Goals"]);
         // console.log(element["Away Team Goals"]);
-    }
-
-    if (element["Year"] === 2014 && element["Stage"] === "Final") {
         // console.log(element["Win conditions"]);
     }
 });
@@ -67,7 +64,7 @@ function getWinners(callback, data) {
     });
 };
 
-// const winners = getWinners(getFinals, fifaData);
+const winners = getWinners(getFinals, fifaData);
 // console.log(winners);
 
 /* Task 6: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!"
@@ -88,17 +85,35 @@ function getWinnersByYear(winner, year, data) {
     });
 };
 
-console.log(getWinnersByYear(getWinners, getYears, fifaData));
+// console.log(getWinnersByYear(getWinners, getYears, fifaData));
 
 /* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
 
-function getAverageGoals(/* code here */) {
+function getAverageGoals(data) {
 
-    /* code here */
+    const getHomeScores = data.map(function(item) {
+        return item["Home Team Goals"];
+    });
+
+    const getAwayScores = data.map(function(item) {
+        return item["Away Team Goals"];
+    });
+
+    const resultAway = getAwayScores.reduce(function(accumulator, item) {
+        return (accumulator + item) / getAwayScores.length;
+    });
+
+    const resultHome = getHomeScores.reduce(function(accumulator, item) {
+        return (accumulator + item) / getAwayScores.length;
+    });
+
+    console.log(resultHome);
+    console.log(resultAway);
+
 
 };
 
-getAverageGoals();
+console.log(getAverageGoals(fifaData));
 
 /// STRETCH 🥅 //
 
